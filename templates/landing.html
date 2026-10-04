@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Hostel Food System{% endblock %}
+{% block content %}
+<nav class="topnav">
+  <div class="brand">Hostel Food</div>
+  <div class="nav-links">
+    <a href="#login" class="tab-link" data-tab="login">Login</a>
+    <a href="#register" class="tab-link" data-tab="register">Register</a>
+  </div>
+</nav>
+
+<main class="page-wrap">
+  <div class="card auth-card" id="login-card">
+    <h1>Login</h1>
+    <p class="muted">Sign in to open the dashboard and food analytics.</p>
+    <form method="POST" action="{{ url_for('login') }}">
+      <label for="login-username">Username</label>
+      <input type="text" id="login-username" name="username" required autocomplete="username">
+
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" required autocomplete="current-password">
+
+      <button type="submit" class="btn-primary">Login</button>
+      <p class="switch-line">No account? <a href="#register" class="tab-link" data-tab="register">Register</a></p>
+    </form>
+  </div>
+
+  <div class="card auth-card" id="register-card" style="display:none;">
+    <h1>Register</h1>
+    <p class="muted">Create an account to track hostel food data.</p>
+    <form method="POST" action="{{ url_for('register') }}">
+      <label for="register-username">Username</label>
+      <input type="text" id="register-username" name="username" required autocomplete="username">
+
+      <label for="register-password">Password</label>
+      <input type="password" id="register-password" name="password" required autocomplete="new-password">
+
+      <button type="submit" class="btn-primary">Create account</button>
+      <p class="switch-line">Already have an account? <a href="#login" class="tab-link" data-tab="login">Login</a></p>
+    </form>
+  </div>
+</main>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+{% endblock %}

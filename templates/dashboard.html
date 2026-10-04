@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Hostel Food System{% endblock %}
+{% block content %}
+<nav class="topnav">
+  <div class="brand">Hostel Food</div>
+  <div class="nav-links">
+    <a class="tab-link active" href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a class="tab-link" href="{{ url_for('analytics') }}">Food analytics</a>
+  </div>
+  <div class="nav-right">
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+</nav>
+
+<main class="page-wrap">
+  <div class="card">
+    <h1>Hostel food dashboard</h1>
+    <p class="muted">Welcome, <strong>{{ current_username }}</strong>.</p>
+    <p>Use <strong>Food analytics</strong> in the navigation to enter weekly consumption and view charts.</p>
+    <p>
+      <a href="{{ url_for('food_waste') }}" class="link-highlight">Meal feedback &amp; waste tool</a>
+      &mdash; student/admin views (saved in this browser).
+    </p>
+  </div>
+</main>
+{% endblock %}
